@@ -68,4 +68,10 @@ public class Logika {
         }
         return sum;
     }
+    
+    public String[][] AddRow(String[][] data){
+        String[][] odata = new String[data.length+1][data.length];
+        System.arraycopy(data, 0, odata, 0, data.length);
+        return odata;
+    }
 }
