@@ -33,6 +33,32 @@ public class Logika {
         return data;
     }
     
+        public String[][] Rendez(String[][] data, boolean aToZ, int ordercol){
+        //Rendezés A=>Z tömb első oszlopa szerint
+        Arrays.sort(data, new Comparator<String[]>() {
+            @Override
+            public int compare(final String[] r1, final String[] r2) {
+                final String n1 = r1[ordercol];
+                final String n2 = r2[ordercol];
+                return n1.compareTo(n2);
+            }
+        });
+        
+        //Ha nem A=>Z tömb megfordítása
+        if (!aToZ) {
+            int start = 0;
+            int end = data.length;
+            while(start < end){
+                String[] stmp = data[start];
+                data[start] = data[end];
+                data[end] = stmp;
+                start++;
+                end--;
+            }
+        }
+        return data;
+    }
+    
     public int Vegosszeg(String[][] data){
         int sum = 0;
         //Jelenleg 4-5 oszlopra tekintek mint mennyiség és ár
