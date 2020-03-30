@@ -32,4 +32,14 @@ public class Logika {
         }
         return data;
     }
+    
+    public int Vegosszeg(String[][] data){
+        int sum = 0;
+        //Jelenleg 4-5 oszlopra tekintek mint mennyiség és ár
+        //Nem numerikus karakterek eltávolítása a stringből
+        for (int i = 0; i < data.length; i++) {
+            sum += Integer.parseInt((data[i][4]).replaceAll("[^\\d]", "")) * Integer.parseInt((data[i][5]).replaceAll("[^\\d]", ""));
+        }
+        return sum;
+    }
 }
