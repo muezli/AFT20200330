@@ -1,5 +1,7 @@
 package bevasarlas;
 
+import java.util.Arrays;
+import java.util.Comparator;
 /**
  *
  * @author muezli
@@ -7,16 +9,14 @@ package bevasarlas;
 public class Logika {
     public String[][] Rendez(String[][] data, boolean aToZ){
         //Rendezés A=>Z tömb első oszlopa szerint
-        String tmp;
-        for (int i = 0; i < data.length-1; i++) {
-            for (int j = i+1; j < data.length; j++) {
-                if (data[i][1].compareToIgnoreCase(data[j][1])>0) {
-                    tmp = data[i][1];
-                    data[i][1] = data[j][1];
-                    data[j][1] = tmp;
-                }
+        Arrays.sort(data, new Comparator<String[]>() {
+            @Override
+            public int compare(final String[] r1, final String[] r2) {
+                final String n1 = r1[0];
+                final String n2 = r2[0];
+                return n1.compareTo(n2);
             }
-        }
+        });
         
         //Ha nem A=>Z tömb megfordítása
         if (!aToZ) {
