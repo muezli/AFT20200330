@@ -23,8 +23,8 @@ public class BevasarloGUI extends JFrame {
         JButton AddItemButton = new JButton("Hozzáadás");
         JButton RemoveItemButton = new JButton("Törlés");
         
-        JButton SortAscButton = new JButton("Rendezés (A-Z)");
-        JButton SortDescButton = new JButton("Rendezés (Z-A)");
+        JButton SortAscButton = new JButton("Rendezés (A»Z)");
+        JButton SortDescButton = new JButton("Rendezés (Z»A)");
              
         setTitle(AppName + " " + VersionNumber);
         setMinimumSize(new Dimension(800, 600));
