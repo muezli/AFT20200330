@@ -10,13 +10,16 @@ import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 
-public class BevasarloGUI extends JFrame {
+public class BevasarloGUI extends JFrame{
 
     static final String AppName = "Bevásárló Lista";
     static final String VersionNumber = "v0.1a";
+    JTable j;
     
     public BevasarloGUI() {
         
@@ -42,8 +45,22 @@ public class BevasarloGUI extends JFrame {
         this.add(CenterPanel, BorderLayout.CENTER);
         this.add(BottomPanel, BorderLayout.SOUTH);
         
-        
-        
+        // Data to be displayed in the JTable 
+        String[][] data = { 
+            { "Kundan Kumar Jha", "4031", "CSE" }, 
+            { "Anand Jha", "6014", "IT" } 
+        }; 
+  
+        // Column Names 
+        String[] columnNames = { "Name", "Roll Number", "Department" }; 
+  
+        // Initializing the JTable 
+        j = new JTable(data, columnNames); 
+        j.setBounds(30, 40, 200, 300); 
+  
+        // adding it to JScrollPane 
+        JScrollPane sp = new JScrollPane(j); 
+        CenterPanel.add(sp);
         
         BottomPanel.add(AddItemButton);
         BottomPanel.add(RemoveItemButton);
@@ -52,7 +69,6 @@ public class BevasarloGUI extends JFrame {
         
     }
     
-
     /**
      * @param args the command line arguments
      */
